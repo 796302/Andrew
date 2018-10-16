@@ -1,11 +1,10 @@
-function Ball(location, velocity, radius, col){
+function Paddle(location, col){
     this.loc = location;
-    this.vel = velocity;
-    this.rad = radius;
     this.col = col;
-    this.acc = createVector(0,.1);
+    this.ht = 30;
+    this.wid = 80;
     this.run = function(){
-      this.checkEdges();
+
       this.update();
       this.render();
     }
@@ -15,10 +14,7 @@ function Ball(location, velocity, radius, col){
   // This function changes the location of the ball
   // by adding speed to x and y
    this.update = function(){
-      this.loc.add(this.vel)
-      this.vel.add(this.acc);
-      this.loc.add(this.vel);
-      this.loc.mag();  // returns the magnitude of vector loc
+this.loc.x = mouseX
    }
 
    //checkEdges() reverses speed when the ball touches an edge
@@ -31,6 +27,6 @@ function Ball(location, velocity, radius, col){
     // render() draws the ball at the new location
    this.render = function(){
       fill(this.col);
-      ellipse(this.loc.x, this.loc.y, this.rad, this.rad);
+      rect(this.loc.x, this.loc.y, this.wid, this.ht);
    }
 }

@@ -1,14 +1,15 @@
 //  Global variables
 var balls = [];
-var paddle = [];
+var paddle;
 
 // seting up project
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(random(20,250), random(20,250), random(20,250)); // draws canvas
-  loadBalls(10);  // loads balls
-  paddle = new Paddle(createVector(0, 0), 33, color(random(255), random(255), random(255)))
+  loadBalls(100);  // loads balls
+  loadpaddle();
+
 }
 //
 function draw() {
@@ -17,11 +18,17 @@ function draw() {
   for(var i = 0; i < balls.length; i = i + 1){
     balls[i].run()
   }
+
+}
   //getting rid of the boids
+  function checkCollision(){
   for (var i = 0; i <balls.length; i++){
 var w = paddle.width
 var h = paddle.height
-    if(){
+    if(balls[i].loc.x < paddle.loc.x &&
+    balls[i].loc.x > paddle.loc.x + paddle.wid &&
+    balls[i].loc.y > paddle.loc.y &&
+    balls[i].loc.y < paddle.loc.y + paddle.ht){
     balls.splice(i , 1)
   }
  }
@@ -30,7 +37,7 @@ var h = paddle.height
 function loadBalls(numBalls){
 //creating the balls
     for(var i = 0; i < numBalls; i++){
-        var loc = createVector(random(width), random(100, 200));
+        var loc = createVector(random(width), random(50, 100));
         var vel = createVector(random(-3,3), random(-3,3));
         var radius = random(30,30);
         var col = color(random(255), random(255), random(255));
@@ -39,4 +46,10 @@ function loadBalls(numBalls){
 
     }
     console.log(balls);
+}
+function loadpaddle() {
+  var loc = createVector(random(width), random(100, 200));
+  var col = color(255, 255, 255);
+  paddle = new Paddle(loc, col);
+
 }

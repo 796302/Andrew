@@ -18,17 +18,16 @@ function draw() {
   for(var i = 0; i < balls.length; i = i + 1){
     balls[i].run()
   }
-
+  checkCollision();
 }
   //getting rid of the boids
   function checkCollision(){
-  for (var i = 0; i <balls.length; i++){
-var w = paddle.width
-var h = paddle.height
-    if(balls[i].loc.x < paddle.loc.x &&
-    balls[i].loc.x > paddle.loc.x + paddle.wid &&
-    balls[i].loc.y > paddle.loc.y &&
-    balls[i].loc.y < paddle.loc.y + paddle.ht){
+  for (var i = 0; i < balls.length; i++){
+
+    if(balls[i].loc.x < (paddle.loc.x) &&
+    balls[i].loc.x > (paddle.loc.x + paddle.wid) &&
+    balls[i].loc.y > (paddle.loc.y) &&
+    balls[i].loc.y < (paddle.loc.y + paddle.ht)){
     balls.splice(i , 1)
   }
  }

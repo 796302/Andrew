@@ -20,7 +20,7 @@ function draw() {
   }
   checkCollision();
 }
-  //getting rid of the boids
+  //splice boid
   function checkCollision(){
   for (var i = 0; i < balls.length; i++){
 
@@ -31,6 +31,16 @@ function draw() {
     balls.splice(i , 1)
   }
  }
+
+}
+if(balls[i].loc.x > (paddle.loc.x) &&
+balls[i].loc.x < (paddle.loc.x + paddle.wid) &&
+balls[i].loc.y > (paddle.loc.y) &&
+balls[i].loc.y < (paddle.loc.y + paddle.ht) &&
+(vel > 0)){
+  balls = [];
+  loadBall(20);
+  balls.run
 }
 //loading the balls
 function loadBalls(numBalls){

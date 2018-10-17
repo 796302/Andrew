@@ -7,7 +7,7 @@ function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(random(20,250), random(20,250), random(20,250)); // draws canvas
-  loadBalls(100);  // loads balls
+  loadBalls(50);  // loads balls
   loadpaddle();
 
 }
@@ -24,8 +24,8 @@ function draw() {
   function checkCollision(){
   for (var i = 0; i < balls.length; i++){
 
-    if(balls[i].loc.x < (paddle.loc.x) &&
-    balls[i].loc.x > (paddle.loc.x + paddle.wid) &&
+    if(balls[i].loc.x > (paddle.loc.x) &&
+    balls[i].loc.x < (paddle.loc.x + paddle.wid) &&
     balls[i].loc.y > (paddle.loc.y) &&
     balls[i].loc.y < (paddle.loc.y + paddle.ht)){
     balls.splice(i , 1)
@@ -47,7 +47,7 @@ function loadBalls(numBalls){
     console.log(balls);
 }
 function loadpaddle() {
-  var loc = createVector(random(width), random(100, 200));
+  var loc = createVector(random(width), 400);
   var col = color(255, 255, 255);
   paddle = new Paddle(loc, col);
 

@@ -4,7 +4,6 @@ function Paddle(location, col){
     this.ht = 30;
     this.wid = 80;
     this.run = function(){
-
       this.update();
       this.render();
     }
@@ -15,6 +14,8 @@ function Paddle(location, col){
   // by adding speed to x and y
    this.update = function(){
 this.loc.x = mouseX
+//var mouseLoc = createVector(mouseX, mouseY)
+//this.loc = p5.Vector.lerp(this.loc, mouseLoc, .5)
    }
 
    //checkEdges() reverses speed when the ball touches an edge

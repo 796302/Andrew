@@ -1,13 +1,13 @@
 //  Global variables
 var balls = [];
 var paddle;
-
+var score = 0;
 // seting up project
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(random(20,250), random(20,250), random(20,250)); // draws canvas
-  loadBalls(50);  // loads balls
+  loadBalls(20);  // loads balls
   loadpaddle();
 
 }
@@ -18,6 +18,10 @@ function draw() {
   for(var i = 0; i < balls.length; i = i + 1){
     balls[i].run()
   }
+  textSize(32);
+  fill(255, 255, 255);
+  text(score, 50, 50);
+
   checkCollision();
 }
   //splice boid
@@ -27,21 +31,29 @@ function draw() {
     if(balls[i].loc.x > (paddle.loc.x) &&
     balls[i].loc.x < (paddle.loc.x + paddle.wid) &&
     balls[i].loc.y > (paddle.loc.y) &&
-    balls[i].loc.y < (paddle.loc.y + paddle.ht)){
+    balls[i].loc.y < (paddle.loc.y + paddle.ht) && balls[i].vel.y > 0){
     balls.splice(i , 1)
+  }
+  //reset game
+  else {
+    if(balls[i].loc.x > (paddle.loc.x) &&
+    balls[i].loc.x < (paddle.loc.x + paddle.wid) &&
+    balls[i].loc.y > (paddle.loc.y) &&
+    balls[i].loc.y < (paddle.loc.y + paddle.ht) &&
+    balls[i].vel.y < 0){
+      balls = [];
+      loadBalls(20);
+      for(var i = 0; i < balls.length; i++){
+      balls[i].run
+    }
+    }
   }
  }
 
+
 }
-if(balls[i].loc.x > (paddle.loc.x) &&
-balls[i].loc.x < (paddle.loc.x + paddle.wid) &&
-balls[i].loc.y > (paddle.loc.y) &&
-balls[i].loc.y < (paddle.loc.y + paddle.ht) &&
-(vel > 0)){
-  balls = [];
-  loadBall(20);
-  balls.run
-}
+
+
 //loading the balls
 function loadBalls(numBalls){
 //creating the balls

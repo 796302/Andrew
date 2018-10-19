@@ -7,17 +7,19 @@ function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(random(20,250), random(20,250), random(20,250)); // draws canvas
-  loadBalls(20);  // loads balls
+  loadBalls(30);  // loads balls
   loadpaddle();
 
 }
-//
+
 function draw() {
-  background(0,0,0,);
+  background(0, 0, 0);
+  //run paddle
   paddle.run();
   for(var i = 0; i < balls.length; i = i + 1){
     balls[i].run()
   }
+  //score
   textSize(32);
   fill(255, 255, 255);
   text(score, 50, 50);
@@ -33,6 +35,7 @@ function draw() {
     balls[i].loc.y > (paddle.loc.y) &&
     balls[i].loc.y < (paddle.loc.y + paddle.ht) && balls[i].vel.y > 0){
     balls.splice(i , 1)
+    score = score + 1
   }
   //reset game
   else {
@@ -41,12 +44,17 @@ function draw() {
     balls[i].loc.y > (paddle.loc.y) &&
     balls[i].loc.y < (paddle.loc.y + paddle.ht) &&
     balls[i].vel.y < 0){
+      var numBalls = balls.length + 50;
       balls = [];
-      loadBalls(20);
+      loadBalls(numBalls);
       for(var i = 0; i < balls.length; i++){
       balls[i].run
     }
     }
+  }
+  if(score > 49){
+    fill(random(0,255), random(0,255), random(0,255));
+    text("You Win!", 400, 400);
   }
  }
 
@@ -68,8 +76,9 @@ function loadBalls(numBalls){
     }
     console.log(balls);
 }
+//paddle function
 function loadpaddle() {
-  var loc = createVector(random(width), 400);
+  var loc = createVector(random(400), 400);
   var col = color(255, 255, 255);
   paddle = new Paddle(loc, col);
 

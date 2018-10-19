@@ -1,8 +1,11 @@
+//paddle parameters
 function Paddle(location, col){
     this.loc = location;
     this.col = col;
+//paddle height/width
     this.ht = 30;
     this.wid = 80;
+//run function
     this.run = function(){
       this.update();
       this.render();
@@ -13,12 +16,12 @@ function Paddle(location, col){
   // This function changes the location of the ball
   // by adding speed to x and y
    this.update = function(){
-this.loc.x = mouseX
-//var mouseLoc = createVector(mouseX, mouseY)
-//this.loc = p5.Vector.lerp(this.loc, mouseLoc, .5)
+paddle.loc.y = 400
+var mouseLoc = createVector(mouseX)
+this.loc = p5.Vector.lerp(this.loc, mouseLoc, .05)
    }
 
-   //checkEdges() reverses speed when the ball touches an edge
+   //checkEdges()
    this.checkEdges = function(){
          if(this.loc.x < 0) this.vel.x = -this.vel.x;
          if(this.loc.x > width) this.vel.x = -this.vel.x;

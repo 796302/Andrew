@@ -2,7 +2,7 @@
 var balls = [];
 var paddle;
 var score = 0;
-// seting up project
+// loadballs/create canvas
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -23,10 +23,10 @@ function draw() {
   textSize(32);
   fill(255, 255, 255);
   text(score, 50, 50);
-
+//run splice Balls
   checkCollision();
 }
-  //splice boid
+  //splice balls
   function checkCollision(){
   for (var i = 0; i < balls.length; i++){
 
@@ -35,9 +35,10 @@ function draw() {
     balls[i].loc.y > (paddle.loc.y) &&
     balls[i].loc.y < (paddle.loc.y + paddle.ht) && balls[i].vel.y > 0){
     balls.splice(i , 1)
+  // increase score when splicing a ball
     score = score + 1
   }
-  //reset game
+  //reset game if hit bottom of paddle
   else {
     if(balls[i].loc.x > (paddle.loc.x) &&
     balls[i].loc.x < (paddle.loc.x + paddle.wid) &&
@@ -52,6 +53,7 @@ function draw() {
     }
     }
   }
+  //win condition
   if(score > 49){
     fill(random(0,255), random(0,255), random(0,255));
     text("You Win!", 400, 400);

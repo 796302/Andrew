@@ -10,6 +10,7 @@ function setup() {
   background(0, 0, 0); // draws canvas
 
 for(var j = 0; j < n-1; j++) {
+  if()
   for(var i = j+1; i < n; i++){
 
 

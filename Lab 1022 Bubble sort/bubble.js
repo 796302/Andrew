@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> c403632d5b43df4504f38cf3f350bc08679a2da5
 words = ['fortnite', 'bortnite', 'chugjug', 'johnwick', 'sit', 'ez', 'poggers', 'fortniteburger'];
 function setup() {
   var cnv = createCanvas(800, 800);

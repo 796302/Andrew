@@ -1,15 +1,9 @@
-/*
-**  Ball Constructor Function
-**  Andrew Ngo
-**  Aug 20, 2018
-*/
-
-function Ball(loc, vel, rad, col){
-    this.loc = loc;
-    this.vel = vel;
-    this.rad = rad;
+function Ball(location, velocity, radius, col){
+    this.loc = location;
+    this.vel = velocity;
+    this.rad = radius;
     this.col = col;
-    this.acc = createVector(0,1);
+    this.acc = createVector(0,.1);
     this.run = function(){
       this.checkEdges();
       this.update();
@@ -21,10 +15,10 @@ function Ball(loc, vel, rad, col){
   // This function changes the location of the ball
   // by adding speed to x and y
    this.update = function(){
-        this.loc.add(this.vel)
-        this.vel.add(this.acc);
-        this.loc.add(this.vel);
-        this.loc.mag();
+      this.loc.add(this.vel)
+      this.vel.add(this.acc);
+      this.loc.add(this.vel);
+      this.loc.mag();  // returns the magnitude of vector loc
    }
 
    //checkEdges() reverses speed when the ball touches an edge
@@ -39,4 +33,4 @@ function Ball(loc, vel, rad, col){
       fill(this.col);
       ellipse(this.loc.x, this.loc.y, this.rad, this.rad);
    }
- }
+}

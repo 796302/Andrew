@@ -1,15 +1,14 @@
 //global variable
-words = ['fortnite', 'bortnite', 'chugjug', 'johnwick', 'sit', 'ez', 'poggers', 'fortniteburger'];
+bars = [];
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
-  background(0, 0, 0); // draws canvas
+  background(random(20,250), random(20,250), random(20,250)); // draws canvas
 
-for(var i = 0; i > words.length; i++){
-  words.push(random(words[i]))
 }
 
-for(var i = words.length - 1; i >=1; i--){
+function bubblesort(bubs){
+  for(var i = words.length - 1; i >=1; i--){
   for(var j = 0; j < words.length; j++){
     if(words[j] > words[j + 1]){
       var temp = words[j];
@@ -20,6 +19,4 @@ for(var i = words.length - 1; i >=1; i--){
   }
 }
 
-
 }
-//global variable

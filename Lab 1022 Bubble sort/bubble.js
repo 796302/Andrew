@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+//global variable
+>>>>>>> 6c017b75d5b65263ef04d17677e1ffd66bfc3d0b
 words = ['fortnite', 'bortnite', 'chugjug', 'johnwick', 'sit', 'ez', 'poggers', 'fortniteburger'];
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -21,3 +25,7 @@ for(var i = words.length - 1; i >=1; i--){
 
 
 }
+<<<<<<< HEAD
+=======
+//global variable
+>>>>>>> 6c017b75d5b65263ef04d17677e1ffd66bfc3d0b

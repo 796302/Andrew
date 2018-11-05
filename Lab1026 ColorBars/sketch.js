@@ -28,6 +28,7 @@ for(var row = 0; row < numberOfSquares; row++) {
     var r = random(0, 255);
     var g = random(0, 255);
     var b = random(0, 255);
+
     if((row + col) % 2){
       c = color(r, g, b);
 for(var i = squares.length - 1; i >= 1; i--){

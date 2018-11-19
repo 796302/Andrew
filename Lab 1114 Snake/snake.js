@@ -1,0 +1,4 @@
+Snake(location, velocity, color){
+
+}
+}

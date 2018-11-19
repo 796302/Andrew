@@ -1,5 +1,7 @@
-var snake;
+var snake = [];
+//snake bodies
 var squares = [];
+//movement for snake
 var numberOfSquares = 40;
 var squareSize;
 function setup() {
@@ -15,10 +17,12 @@ for(var i = 0; i < squares.length; i++){
 }
 
 function loadSquares(){
-  //  create a square object and push it into the squares array
+  //  checkerboard for movement of snakes
 var rowNum = 0;
+//row for movement of snakes
 var colNum = 0;
-
+//column for movement of snakes
+//creates the amount of pixels the snake can move vvvvvv
 for(var row = 0; row < 40; row++) {
   var x = 20*row
   for(var col = 0; col < 40; col++) {
@@ -26,7 +30,8 @@ for(var row = 0; row < 40; row++) {
     var loc = createVector(x, y);
     var c;
     if((row + col) % 2){
-      c = color(0, 0, 0);
+      c = color(255, 255, 255);
+//keeps white background
     }
     else {
       c = color(255, 255, 255);

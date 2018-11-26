@@ -9,13 +9,27 @@ function setup(){
   cols = width/w;
   rows = height/w;
   var loc = createVector(width/2, height/2);
-  var vel = createVector(5, 0);
+  var vel = createVector(0, 0);
   snake = new Snake(loc, vel);
+  cols = width/w;
+  rows = height/w;
+  var loc = createVector(random(width), random(height));
+  var vel = createVector(0, 0);
+  food = new Food(loc, vel);
+  frameRate(15);
 }
 
 function draw(){
   background(20, 20, 20, 6000);
   snake.run();
+  food.run();
+}
+
+if(snake.loc.x < food.loc.x + food.width &&
+snake.loc.x + snake.width > food.loc.x &&
+snake.loc.y < food.loc.y + food.height &&
+snake.loc.y + snake.height > food.loc.y){
+
 }
 
 function keyPressed(){

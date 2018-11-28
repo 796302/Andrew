@@ -2,6 +2,8 @@ var w = 20;
 var cols, rows;
 var snake = [];
 var food = [];
+var cols = Math.floor(800/20);
+var rows = Math.floor(800/20);
 function setup(){
   var cnv = createCanvas(800, 800);
   cnv.position(windowWidth-width)/(2, 30);
@@ -20,19 +22,18 @@ function draw(){
 for(var i = 0; i < food.length; i = i + 1){
   food[i].run();
 }
-  checkCollision();
+  checkLoc();
 }
-function checkCollision(){
-for(var i = 0; i < food.length; i++){
-
-if(food[i].loc.x > (snake.loc.x) &&
-food[i].loc.x < (snake.loc.x + snake.width) &&
-food[i].loc.y > (snake.loc.y) &&
-food[i].loc.y < (snake.loc.y + snake.height)){
-food.splice(i , 1)
-
-}
-}
+function checkLoc(){
+  for(var i = 0; i < food.length; i++){
+    var distX = food[i].loc.x - snake[0].loc.x;
+    var distY = food[i].loc.y - snake[0].loc.y;
+    if(distX == (0) && distY == (0)){
+      food.splice(i, 1);
+      loadFood(1);
+      loadSnake(1);
+    }
+  }
 }
 
 
@@ -62,7 +63,8 @@ function keyPressed(){
 }
 function loadSnake(numSnake){
   for(var i = 0; i < numSnake; i++){
-    var loc = createVector(random(width), random(height));
+
+    var loc = createVector(width /2, height/2);
     var vel = createVector(0, 0);
     var col = color(0, 255, 0);
     var s = new Snake(loc, vel, col);
@@ -71,7 +73,12 @@ function loadSnake(numSnake){
 }
 function loadFood(numFood){
   for(var i = 0; i < numFood; i++){
-    var loc = createVector(random(width), random(height));
+    var min = 1;
+   //40 * 20 = 800
+   var max = 40;
+   var locX = (Math.floor(Math.random() * (max - min + 1) + min)) * 20;
+   var locY = (Math.floor(Math.random() * (max - min + 1) + min)) * 20;
+    var loc = createVector(locX, locY);
     var vel = createVector(0, 0);
     var col = color(0, 255, 0);
     var f = new Food(loc, vel, col);

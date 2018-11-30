@@ -3,6 +3,7 @@ var snake;
 var food = [];
 var numSeg = 1;
 
+
 function setup(){
   var cnv = createCanvas(800, 800);
   cnv.position(windowWidth-width)/(2, 30);
@@ -10,7 +11,7 @@ function setup(){
   loadSnake();
   loadFood(1);
 
-  frameRate(10);
+  frameRate(15);
 }
 
 function draw(){
@@ -31,6 +32,7 @@ function checkLoc(){
       food.splice(i, 1);
       loadFood(1);
       snake.numSeg = snake.numSeg + 1;
+
     }
   }
 }

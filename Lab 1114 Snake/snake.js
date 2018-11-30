@@ -1,10 +1,12 @@
-function Snake(loc, vel){
+function Snake(loc, vel, col, numSeg){
 
   this.loc = loc;
   this.vel = vel;
+  this.col = color;
   this.numSeg = numSeg;
-   this.segments = [];
-   this.segments.push(createVector(0, 0));
+  this.segments = [];
+  this.segments.push(createVector(0, 0));
+
   this.run = function(){
     this.update();
     this.render();
@@ -17,6 +19,7 @@ function Snake(loc, vel){
     this.loc.x = constrain(this.loc.x, 0, 800-20)
     this.loc.y = constrain(this.loc.y, 0, 800-20)
   }
+
   this.render = function(){
     for(var i = 0; i < this.numSeg; i++){
       noStroke();

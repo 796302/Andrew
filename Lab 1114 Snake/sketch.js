@@ -11,7 +11,7 @@ function setup(){
   loadSnake();
   loadFood(1);
 
-  frameRate(15);
+  frameRate(20);
 }
 
 function draw(){

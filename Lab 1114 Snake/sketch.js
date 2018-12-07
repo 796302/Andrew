@@ -10,8 +10,7 @@ function setup(){
   background(20, 20, 20);
   loadSnake();
   loadFood(1);
-  score = createDiv('Score = 0')
-  score.position(20,20);
+
 }
 
 
@@ -83,6 +82,7 @@ function deadGame(){
     snake = 0
     loadSnake();
     gameStart();
+    score = 0;
   }
 }
 

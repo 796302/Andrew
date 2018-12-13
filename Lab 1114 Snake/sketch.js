@@ -4,7 +4,7 @@ var numSeg = 1;
 var start = "true"
 var score = 0;
 function setup(){
-  frameRate(10);
+  frameRate(20);
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(20, 20, 20);
@@ -80,19 +80,21 @@ function keyPressed(){
 function deadGame(){
   if(snake.status == "true"){
     textFont()
-    fill(255, 255, 255);
-    rect(125, 275, 550, 200);
-    fill(0, 0, 0);
-    textAlign(CENTER);
-    textSize(50);
-    text("You Lose", 400, 350)
-    text("Press w to restart", 400, 425)
+      fill(255, 255, 255);
+      rect(125, 275, 550, 200);
+      fill(0, 0, 0);
+      textAlign(CENTER);
+      textSize(50);
+      text("You Lose", 400, 350)
+      text("Press w to restart", 400, 425)
+
 
     if(keyCode === 87){
       snake = 0
       loadSnake();
       gameStart();
       score = 0;
+
     }
   }
 }

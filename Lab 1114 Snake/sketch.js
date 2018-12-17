@@ -1,10 +1,17 @@
+//snake object
 var snake;
+//food all in the array
 var food = [];
+
 var numSeg = 1;
+//set up start screen
 var start = "true"
+//point system/number of segments
 var score = 0;
 function setup(){
+//speed of game
   frameRate(20);
+
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(20, 20, 20);
@@ -17,12 +24,14 @@ function setup(){
 function draw(){
 
   background(20, 20, 20);
+  textSize(10)
+  text("score:" + score, 30, 30);
   snake.run();
-
+//repeat placement of food
   for(var i = 0; i < food.length; i++){
     food[i].run();
   }
-
+//call functions
   checkLoc();
   deadGame();
   gameStart();
@@ -37,7 +46,7 @@ function checkLoc(){
       loadFood(1);
       snake.segments.push(createVector(0, 0));
       console.log(snake.segments.length)
-      score = score + 1;
+      score++;
     }
   }
 }

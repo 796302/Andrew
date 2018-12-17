@@ -10,7 +10,9 @@ var start = "true"
 var score = 0;
 function setup(){
 //speed of game
-  frameRate(20);
+fSlider = createSlider(0, 50, 10);
+fSlider.position(780, 5);
+frameRate(frames);
 
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -22,7 +24,8 @@ function setup(){
 
 
 function draw(){
-
+  frames = fSlider.value();
+  frameRate(frames);
   background(20, 20, 20);
   textSize(10)
   text("score:" + score, 30, 30);
